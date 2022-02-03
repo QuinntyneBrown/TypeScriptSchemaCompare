@@ -1,0 +1,470 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TypeScriptSchemaCompare",
+    "description": "",
+    "termsOfService": "https://example.com/terms",
+    "contact": {
+      "name": "",
+      "email": ""
+    },
+    "license": {
+      "name": "Use under MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/TypeScriptModel/{typeScriptModelId}": {
+      "get": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Get TypeScriptModel by id.",
+        "description": "Get TypeScriptModel by id.",
+        "operationId": "getTypeScriptModelById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "typeScriptModelId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTypeScriptModelByIdResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Delete TypeScriptModel.",
+        "description": "Delete TypeScriptModel.",
+        "operationId": "removeTypeScriptModel",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "typeScriptModelId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RemoveTypeScriptModelResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/TypeScriptModel": {
+      "get": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Get TypeScriptModels.",
+        "description": "Get TypeScriptModels.",
+        "operationId": "getTypeScriptModels",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTypeScriptModelsResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Create TypeScriptModel.",
+        "description": "Create TypeScriptModel.",
+        "operationId": "createTypeScriptModel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateTypeScriptModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateTypeScriptModelResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Update TypeScriptModel.",
+        "description": "Update TypeScriptModel.",
+        "operationId": "updateTypeScriptModel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateTypeScriptModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateTypeScriptModelResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/TypeScriptModel/compare": {
+      "post": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Compare TypeScriptModels",
+        "description": "Compare TypeScriptModels",
+        "operationId": "compare",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CompareRequest"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CompareResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/TypeScriptModel/page/{pageSize}/{index}": {
+      "get": {
+        "tags": [
+          "TypeScriptModel"
+        ],
+        "summary": "Get TypeScriptModel Page.",
+        "description": "Get TypeScriptModel Page.",
+        "operationId": "getTypeScriptModelsPage",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pageSize",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "path",
+            "name": "index",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTypeScriptModelsPageResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CompareRequest": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "compareTo": {
+          "type": "string"
+        }
+      }
+    },
+    "CompareResponse": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CreateTypeScriptModelRequest": {
+      "type": "object",
+      "properties": {
+        "typeScriptModel": {
+          "$ref": "#/definitions/TypeScriptModelDto"
+        }
+      }
+    },
+    "CreateTypeScriptModelResponse": {
+      "type": "object",
+      "properties": {
+        "typeScriptModel": {
+          "$ref": "#/definitions/TypeScriptModelDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetTypeScriptModelByIdResponse": {
+      "type": "object",
+      "properties": {
+        "typeScriptModel": {
+          "$ref": "#/definitions/TypeScriptModelDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetTypeScriptModelsPageResponse": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TypeScriptModelDto"
+          }
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetTypeScriptModelsResponse": {
+      "type": "object",
+      "properties": {
+        "typeScriptModels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TypeScriptModelDto"
+          }
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ProblemDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": { }
+    },
+    "RemoveTypeScriptModelResponse": {
+      "type": "object",
+      "properties": {
+        "typeScriptModel": {
+          "$ref": "#/definitions/TypeScriptModelDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TypeScriptModelDto": {
+      "type": "object",
+      "properties": {
+        "typeScriptModelId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "UpdateTypeScriptModelRequest": {
+      "type": "object",
+      "properties": {
+        "typeScriptModel": {
+          "$ref": "#/definitions/TypeScriptModelDto"
+        }
+      }
+    },
+    "UpdateTypeScriptModelResponse": {
+      "type": "object",
+      "properties": {
+        "typeScriptModel": {
+          "$ref": "#/definitions/TypeScriptModelDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

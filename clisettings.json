@@ -1,0 +1,31 @@
+{
+  "isRoot": true,
+  "isMicroserviceArchitecture": false,
+  "projects": [],
+  "rootDirectory": "C:\\projects\\TypeScriptSchemaCompare",
+  "solutionName": "TypeScriptSchemaCompare",
+  "solutionFileName": "TypeScriptSchemaCompare.sln",
+  "apiFullPath": "C:\\projects\\TypeScriptSchemaCompare\\src\\TypeScriptSchemaCompare.Api\\TypeScriptSchemaCompare.Api.csproj",
+  "rootNamespace": "TypeScriptSchemaCompare",
+  "domainNamespace": "TypeScriptSchemaCompare.SharedKernal",
+  "applicationNamespace": "TypeScriptSchemaCompare.Core",
+  "infrastructureNamespace": "TypeScriptSchemaCompare.Infrastructure",
+  "apiNamespace": "TypeScriptSchemaCompare.Api",
+  "domainDirectory": "C:\\projects\\TypeScriptSchemaCompare\\src\\TypeScriptSchemaCompare.SharedKernal",
+  "applicationDirectory": "C:\\projects\\TypeScriptSchemaCompare\\src\\TypeScriptSchemaCompare.Core",
+  "infrastructureDirectory": "C:\\projects\\TypeScriptSchemaCompare\\src\\TypeScriptSchemaCompare.Infrastructure",
+  "apiDirectory": "C:\\projects\\TypeScriptSchemaCompare\\src\\TypeScriptSchemaCompare.Api",
+  "unitTestsDirectory": "C:\\projects\\TypeScriptSchemaCompare\\tests\\TypeScriptSchemaCompare.UnitTests",
+  "testingDirectory": "C:\\projects\\TypeScriptSchemaCompare\\tests\\TypeScriptSchemaCompare.Testing",
+  "appDirectories": [],
+  "buildingBlocksCoreNamespace": "BuildingBlocks.Core",
+  "buildingBlocksEventStoreNamespace": "BuildingBlocks.EventStore",
+  "sourceFolder": "src",
+  "testFolder": "tests",
+  "dbContextName": "SchemaCompareDbContext",
+  "port": 5000,
+  "sslPort": 5001,
+  "resources": [
+    "TypeScriptModel"
+  ]
+}

@@ -1,0 +1,18 @@
+<div class="app__compare-container">
+  <textarea [formControl]="sourceControl">
+
+  </textarea>
+  
+  <textarea [formControl]="compareToControl">
+    
+  </textarea>
+</div>
+
+<button (click)="compare()">Compare</button>
+
+
+<div class="app__errors-container">
+  <ul *ngIf="errors">
+    <li *ngFor="let error of errors">{{ error }}</li>
+  </ul>
+</div>
