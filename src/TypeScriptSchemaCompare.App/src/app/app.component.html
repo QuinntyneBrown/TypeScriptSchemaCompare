@@ -1,18 +1,19 @@
-<div class="app__compare-container">
-  <textarea [formControl]="sourceControl">
+<ng-container *ngIf="vm$ | async as vm">
 
-  </textarea>
-  
-  <textarea [formControl]="compareToControl">
+  <div class="app__compare-container">
+
+    <textarea [formControl]="sourceControl"></textarea>
     
-  </textarea>
-</div>
+    <textarea [formControl]="compareToControl"></textarea>
 
-<button (click)="compare()">Compare</button>
+  </div>
+  
+  <button (click)="compare()">Compare</button>
+  
+  <div class="app__errors-container">
+    <ul *ngIf="vm.errors">
+      <li *ngFor="let error of vm.errors">{{ error }}</li>
+    </ul>
+  </div>
 
-
-<div class="app__errors-container">
-  <ul *ngIf="errors">
-    <li *ngFor="let error of errors">{{ error }}</li>
-  </ul>
-</div>
+</ng-container>

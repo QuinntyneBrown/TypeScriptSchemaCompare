@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TypeScriptModelService } from '@api';
-import { tap } from 'rxjs';
+import { map, startWith, Subject, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +9,28 @@ import { tap } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  sourceControl = new FormControl();
-  compareToControl = new FormControl();
-  errors: string[];
+  
+  readonly sourceControl = new FormControl();
+  
+  readonly compareToControl = new FormControl();
+  
+  readonly _compareSubject: Subject<void> = new Subject();
 
-  constructor(
-    private readonly _typeScriptModelService: TypeScriptModelService
-  ) {
-
-  }
-
-  compare() {
-    this._typeScriptModelService.compare({
+  readonly vm$ = this._compareSubject.pipe(
+    switchMap(_ => this._typeScriptModelService.compare({
       source: this.sourceControl.value,
       compareTo:this.compareToControl.value
     }).pipe(
-      tap(response => this.errors = response.errors)
-    ).subscribe();
+      map(response => ({ errors: response.errors }))
+    )),
+    startWith({ errors: null }),
+  );
+
+  constructor(
+    private readonly _typeScriptModelService: TypeScriptModelService
+  ) { }
+
+  compare() {
+    this._compareSubject.next();
   }
 }
