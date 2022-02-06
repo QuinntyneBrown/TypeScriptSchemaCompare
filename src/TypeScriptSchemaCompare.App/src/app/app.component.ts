@@ -14,7 +14,7 @@ export class AppComponent {
   
   readonly compareToControl = new FormControl();
   
-  readonly _compareSubject: Subject<void> = new Subject();
+  private readonly _compareSubject: Subject<void> = new Subject();
 
   readonly vm$ = this._compareSubject.pipe(
     switchMap(_ => this._typeScriptModelService.compare({
